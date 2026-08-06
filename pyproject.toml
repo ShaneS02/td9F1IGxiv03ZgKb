@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "customer-happiness"
+version = "0.1.0"
+description = "Customer Happiness Prediction Project"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "numpy==2.5.1",
+    "pandas==3.0.5",
+    "matplotlib==3.11.1",
+    "seaborn==0.13.2",
+    "ipykernel==7.3.0",
+    "scikit-learn==1.9.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
