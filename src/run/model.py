@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from .decision_tree import DecisionTree
 
 class Model:
     def __init__(self, data: pd.DataFrame = None):
@@ -10,13 +11,21 @@ class Model:
         """Return the DataFrame containing the data."""
         return self.data
 
-    def train(self, X_train, y_train):
-        # Placeholder for training logic
-        pass
+    def train(self, X_train, y_train, model_type: str = "decision_tree"):
+        if model_type == "decision_tree":
+            # Training logic for decision tree
+            self.model = DecisionTree()
+            self.model.train(X_train, y_train)
+
+        elif model_type == "xgboost":
+            # Training logic for XGBoost
+            pass
+        elif model_type == "knn":
+            # Training logic for KNN
+            pass
 
     def predict(self, X_test, Y_test):
-        # Placeholder for prediction logic
-        pass
+        return self.model.evaluate(X_test, Y_test)
 
     def load_data_from_csv(self, file_path: str):
         """Load data from a CSV file into the model's DataFrame."""
