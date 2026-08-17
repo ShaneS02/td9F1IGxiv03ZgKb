@@ -26,15 +26,15 @@ class CoreModel:
             min_samples_leaf=min_samples_leaf
         )
 
-    def load_xgboost(self, random_state: int = 42, learning_rate: float = 0.1, n_estimators: int = 100, max_depth: int = 3, subsample: float = 1.0, min_child_weight: int = 1, gamma: float = 0):
+    def load_xgboost(self, random_state: int = 42, learning_rate: float = 0.1, n_estimators: int = 100, max_depth: int = 3, subsample: float = 1.0, min_child_weight: int = 1, gamma: float = 0, colsample_bytree = 0.7, reg_alpha = 0, reg_lambda = 1):
         """Load the XGBoost model."""
         self.model_type = ModelType.XGBOOST
-        self.model = XGBoostModel(random_state=random_state, learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, subsample=subsample, min_child_weight=min_child_weight, gamma=gamma)
+        self.model = XGBoostModel(random_state=random_state, learning_rate=learning_rate, n_estimators=n_estimators, max_depth=max_depth, subsample=subsample, min_child_weight=min_child_weight, gamma=gamma, colsample_bytree=colsample_bytree, reg_alpha =reg_alpha, reg_lambda = reg_lambda)
 
-    def load_knn(self, n_neighbors: int = 5):
+    def load_knn(self, n_neighbors: int = 5, weights="uniform" ):
         """Load the KNN model."""
         self.model_type = ModelType.KNN
-        self.model = KNNModel(n_neighbors=n_neighbors)
+        self.model = KNNModel(n_neighbors=n_neighbors, weights=weights)
 
     def get_data(self):
         """Return the DataFrame containing the data."""

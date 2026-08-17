@@ -9,7 +9,10 @@ class XGBoostModel(BaseModel):
                     max_depth: int = 3,
                     subsample: float = 1.0,
                     min_child_weight: int = 1,
-                    gamma: float = 0
+                    gamma: float = 0, 
+                    colsample_bytree= 0.7, 
+                    reg_alpha = 0, 
+                    reg_lambda = 1
                 ):
         super().__init__(XGBClassifier(random_state=random_state, 
                                        learning_rate=learning_rate, 
@@ -17,5 +20,8 @@ class XGBoostModel(BaseModel):
                                        max_depth=max_depth, 
                                        subsample=subsample, 
                                        min_child_weight=min_child_weight, 
-                                       gamma=gamma
+                                       gamma=gamma, 
+                                       colsample_bytree=colsample_bytree, 
+                                       reg_alpha=reg_alpha, 
+                                       reg_lambda=reg_lambda
                                        ))
