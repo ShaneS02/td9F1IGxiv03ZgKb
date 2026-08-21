@@ -46,3 +46,7 @@
 # Preprocessing Results
 
 - 16 duplicated records were identified and removed to prevent bias during model training.
+
+# Final implementation Notes
+
+- The run_V2.ipynb is the most updated implementation of the model.
